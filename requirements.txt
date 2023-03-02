@@ -1,0 +1,6 @@
+pandas
+streamlit==1.19.0
+shillelagh[all]
+google-auth
+pytz
+Pillow
