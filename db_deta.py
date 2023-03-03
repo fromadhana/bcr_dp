@@ -7,7 +7,7 @@ import streamlit as st
 
 
 #initialize with a project key
-DETA_KEY = st.secrets["detakey"]
+DETA_KEY = st.secrets["deta_key"]
 deta = Deta(DETA_KEY)
 
 #connect deta database
