@@ -78,35 +78,69 @@ if authentication_status:
   st.markdown(hide_img_fs, unsafe_allow_html=True)
 
   #subheader
-  st.subheader("FORM STOCK OPNAME DROP POINT 🏠")
+  st.caption("**FORM STOCK OPNAME DROP POINT** 🏠")
 
   #display streamlit form
   with st.form(key= "form_so", clear_on_submit=True):
     col1, col2 = st.columns(2)
     with col1:
       #datetime now
-      st.markdown("""
-      <style>
-      [data-testid=column]:nth-of-type(1) [data-testid=stVerticalBlock]{
-          gap: 0rem;
-      }
-      </style>
-      """,unsafe_allow_html=True)
       tp = st.date_input(label="**Tanggal Stock Opname** 📅")
       timenow = datetime.now(pytz.timezone('Asia/Jakarta')).strftime("%d-%m-%Y %H:%M:%S")
       time.sleep(1)
 
     with col2:
       #selectbox for stock opname session
-      st.markdown("""
-      <style>
-      [data-testid=column]:nth-of-type(2) [data-testid=stVerticalBlock]{
-          gap: 0rem;
-      }
-      </style>
-      """,unsafe_allow_html=True)
       so_sm = st.selectbox('**Stock Opname Siang/Malam**?🌞🌙', ('SIANG', 'MALAM'))
-      
+    
+    #sisa stock sebelumnya
+    st.markdown("**Sisa Stock Sebelumnya** ⏪️")
+    col3, col4, col5 = st.columns(3)
+    with col3:
+      st.markdown("""
+          <style>
+          [data-testid=column]:nth-of-type(1) [data-testid=stVerticalBlock]{
+              gap: 0rem;
+          }
+          </style>
+          """,unsafe_allow_html=True)
+      p1 = st.selectbox("p1", ('','Lapis Talas Kujang', 'Bolu Susu Kujang', 'Brownies Panggang Kujang', 'Brownies Sekat Kujang', 'Pie Gurih isi 6', 'Pie Gurih isi 8'), label_visibility="collapsed")
+      p2 = st.selectbox("p2", ('','Lapis Talas Kujang', 'Bolu Susu Kujang', 'Brownies Panggang Kujang', 'Brownies Sekat Kujang', 'Pie Gurih isi 6', 'Pie Gurih isi 8'), label_visibility="collapsed")
+      p3 = st.selectbox("p3", ('','Lapis Talas Kujang', 'Bolu Susu Kujang', 'Brownies Panggang Kujang', 'Brownies Sekat Kujang', 'Pie Gurih isi 6', 'Pie Gurih isi 8'), label_visibility="collapsed")
+      p4 = st.selectbox("p4", ('','Lapis Talas Kujang', 'Bolu Susu Kujang', 'Brownies Panggang Kujang', 'Brownies Sekat Kujang', 'Pie Gurih isi 6', 'Pie Gurih isi 8'), label_visibility="collapsed")
+      p5 = st.selectbox("p5", ('','Lapis Talas Kujang', 'Bolu Susu Kujang', 'Brownies Panggang Kujang', 'Brownies Sekat Kujang', 'Pie Gurih isi 6', 'Pie Gurih isi 8'), label_visibility="collapsed")
+      p6 = st.selectbox("p6", ('','Lapis Talas Kujang', 'Bolu Susu Kujang', 'Brownies Panggang Kujang', 'Brownies Sekat Kujang', 'Pie Gurih isi 6', 'Pie Gurih isi 8'), label_visibility="collapsed")      
+    
+    with col4:
+      st.markdown("""
+          <style>
+          [data-testid=column]:nth-of-type(2) [data-testid=stVerticalBlock]{
+              gap: 0rem;
+          }
+          </style>
+          """,unsafe_allow_html=True)
+      n1 = st.number_input('n1', min_value=0, max_value=100, step=1, label_visibility="collapsed")
+      n2 = st.number_input('n2', min_value=0, max_value=100, step=1, label_visibility="collapsed")
+      n3 = st.number_input('n3', min_value=0, max_value=100, step=1, label_visibility="collapsed")
+      n4 = st.number_input('n4', min_value=0, max_value=100, step=1, label_visibility="collapsed")
+      n5 = st.number_input('n5', min_value=0, max_value=100, step=1, label_visibility="collapsed")
+      n6 = st.number_input('n6', min_value=0, max_value=100, step=1, label_visibility="collapsed")
+    
+    with col5:
+      st.markdown("""
+          <style>
+          [data-testid=column]:nth-of-type(3) [data-testid=stVerticalBlock]{
+              gap: 0rem;
+          }
+          </style>
+          """,unsafe_allow_html=True)
+      t1 = st.date_input('t1', label_visibility="collapsed", help="tanggal expired")
+      t2 = st.date_input('t2', label_visibility="collapsed", help="tanggal expired")
+      t3 = st.date_input('t3', label_visibility="collapsed", help="tanggal expired")
+      t4 = st.date_input('t4', label_visibility="collapsed", help="tanggal expired")
+      t5 = st.date_input('t5', label_visibility="collapsed", help="tanggal expired")
+      t6 = st.date_input('t6', label_visibility="collapsed", help="tanggal expired")
+
     #submit button
     submitted = st.form_submit_button(label="**SUBMIT**", use_container_width=True, type='primary')
     if submitted:

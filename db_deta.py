@@ -21,4 +21,3 @@ def fetch_all_user():
     """Returns a dict of all users"""
     res = db.fetch()
     return res.items
-print(fetch_all_user())
