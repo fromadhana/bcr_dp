@@ -95,19 +95,12 @@ if authentication_status:
     
     #sisa stock sebelumnya
     st.markdown("**Sisa Stock Sebelumnya** ⏪️")
-    st.markdown("""
-                <style>
-                [data-testid=column]:nth-of-type(0) [data-testid=stVerticalBlock]{
-                    gap: 0rem;
-                }
-                </style>
-                """,unsafe_allow_html=True)
     col3, col4, col5 = st.columns(3)
     with col3:
       st.write('''<style>
       [data-testid="column"] {
           width: calc(45% - 1rem) !important;
-          flex: 1 1 calc(33.3333% - 1rem) !important;
+          flex: 1 1 calc(33.3333% - 0rem) !important;
           min-width: calc(45% - 1rem) !important;
       }
       </style>''', unsafe_allow_html=True)
@@ -122,7 +115,7 @@ if authentication_status:
       st.write('''<style>
       [data-testid="column"] {
           width: calc(33.3333% - 1rem) !important;
-          flex: 1 1 calc(33.3333% - 1rem) !important;
+          flex: 1 1 calc(33.3333% - 0rem) !important;
           min-width: calc(33% - 1rem) !important;
       }
       </style>''', unsafe_allow_html=True)
@@ -137,7 +130,7 @@ if authentication_status:
       st.write('''<style>
       [data-testid="column"] {
           width: calc(33.3333% - 1rem) !important;
-          flex: 1 1 calc(33.3333% - 1rem) !important;
+          flex: 1 1 calc(33.3333% - 0rem) !important;
           min-width: calc(33% - 1rem) !important;
       }
       </style>''', unsafe_allow_html=True)
