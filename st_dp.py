@@ -85,10 +85,10 @@ if authentication_status:
     col1, col2 = st.columns(2)
     with col1:
       #datetime now
-      tp = st.date_input(label="**Tanggal Hari ini**")
       timenow = datetime.now(pytz.timezone('Asia/Jakarta')).strftime("%d-%m-%Y %H:%M:%S")
       time.sleep(1)
-
+      st.write(" ".format(timenow))
+    
     with col2:
       #selectbox for stock opname session
       so_sm = st.selectbox('**Sesi Siang/Malam?**', ('SIANG', 'MALAM'))
