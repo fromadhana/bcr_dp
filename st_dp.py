@@ -83,8 +83,10 @@ if authentication_status ==True:
   timenow = datetime.now(pytz.timezone('Asia/Jakarta')).strftime("%d-%m-%Y %H:%M:%S")
   time.sleep(1)
 
+  tab1, tab2, tab3 = st.tabs(["Sisa Stock Sebelumnya", "Stock Masuk Hari Ini", "Penjualan Hari Ini"])
   #display streamlit form
-  with st.expander("Sisa Stock Sebelumnya"):
+  with tab1:
+    st.header("Sisa Stock Sebelumnya")
     with st.form(key= "form_so", clear_on_submit=True):
       so_sm = st.selectbox('**Sesi Siang/Malam?**', ('SIANG', 'MALAM'))
       
@@ -133,7 +135,8 @@ if authentication_status ==True:
         st.warning('Isi sesuai jumlah stock yang ada di drop point', icon="⚠️")
         st.stop()
 
-  with st.expander("Stock Masuk Hari Ini"):
+  with tab2:
+    st.header("Stock Masuk Hari Ini")
     with st.form(key= "form_so", clear_on_submit=True):
       so_sm = st.selectbox('**Sesi Siang/Malam?**', ('SIANG', 'MALAM'))
       
@@ -182,7 +185,8 @@ if authentication_status ==True:
         st.warning('Isi sesuai jumlah stock yang ada di drop point', icon="⚠️")
         st.stop()
 
-  with st.expander("Penjualan Hari Ini"):
+  with tab3: 
+    st.header("Penjualan Hari Ini")
     with st.form(key= "form_so", clear_on_submit=True):
       so_sm = st.selectbox('**Sesi Siang/Malam?**', ('SIANG', 'MALAM'))
       
