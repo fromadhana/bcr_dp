@@ -100,7 +100,6 @@ if authentication_status:
       st.write('''<style>
       [data-testid="column"] {
           width: calc(33.3333% - 1rem) !important;
-          height: calc(33.3333% - 1rem) !important;
           flex: 1 1 calc(33.3333% - 1rem) !important;
           min-width: calc(33% - 1rem) !important;
       }
@@ -116,7 +115,6 @@ if authentication_status:
       st.write('''<style>
       [data-testid="column"] {
           width: calc(33.3333% - 1rem) !important;
-          height: calc(33.3333% - 1rem) !important;
           flex: 1 1 calc(33.3333% - 1rem) !important;
           min-width: calc(33% - 1rem) !important;
       }
@@ -132,9 +130,9 @@ if authentication_status:
       st.write('''<style>
       [data-testid="column"] {
           width: calc(33.3333% - 1rem) !important;
-          height: calc(33.3333% - 1rem) !important;
           flex: 1 1 calc(33.3333% - 1rem) !important;
           min-width: calc(33% - 1rem) !important;
+          font-size:4px;
       }
       </style>''', unsafe_allow_html=True)
       t1 = st.date_input('t1', label_visibility="collapsed", help="tanggal expired")
