@@ -15,17 +15,16 @@ from datetime import datetime
 #set page configuration
 st.set_page_config(
   page_title="Form SO Drop Point",
-  page_icon="👋🏻",
+  page_icon="🏠",
   layout="wide")
 
 #set padding page
-padding = 0
 st.markdown(f""" <style>
-    .reportview-container .main .block-container{{
-        padding-top: {padding}rem;
-        padding-right: {padding}rem;
-        padding-left: {padding}rem;
-        padding-bottom: {padding}rem;
+      .block-container{{
+        padding-top: 1rem;
+        padding-right: 2rem;
+        padding-left: 2rem;
+        padding-bottom: 1rem;
     }} </style> """, unsafe_allow_html=True)
 
 #hide streamlit menu and footer
@@ -43,14 +42,17 @@ def process_for_index(index: int) -> int:
     sleep(0.5)
     return 2 * index + 1
 
-#image title
-im = Image.open("banner_so_dp2.png")
-st.image(im)
-
-
-#display title and caption
-st.subheader("**FORM STOCK OPNAME DROP POINT** 🏠")
-st.caption("**Form ini bertujuan untuk memantau secara sistematis semua perputaran stok drop point**")
+#banner information
+url = "https://i.ibb.co/2sMDZ3Y/banner-dp.png"
+st.image(url, use_column_width=True)
+#hide fullscreen image
+hide_img_fs = '''
+<style>
+button[title="View fullscreen"]{
+    visibility: hidden;}
+</style>
+'''
+st.markdown(hide_img_fs, unsafe_allow_html=True)
 
 #display streamlit form
 with st.form(key= "form_so", clear_on_submit=True):
