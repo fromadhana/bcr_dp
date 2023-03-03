@@ -95,6 +95,13 @@ if authentication_status:
     
     #sisa stock sebelumnya
     st.markdown("**Sisa Stock Sebelumnya** ⏪️")
+    st.markdown("""
+                <style>
+                [data-testid=column]:nth-of-type(2) [data-testid=stVerticalBlock]{
+                    gap: 0rem;
+                }
+                </style>
+                """,unsafe_allow_html=True)
     col3, col4, col5 = st.columns(3)
     with col3:
       st.write('''<style>
