@@ -74,7 +74,7 @@ with st.form(key= "form_so", clear_on_submit=True):
      #selectbox for stock opname session
      st.markdown("""
     <style>
-    [data-testid=column]:nth-of-type(1) [data-testid=stVerticalBlock]{
+    [data-testid=column]:nth-of-type(2) [data-testid=stVerticalBlock]{
         gap: 0rem;
     }
     </style>
