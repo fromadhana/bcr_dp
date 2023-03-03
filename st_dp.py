@@ -133,100 +133,100 @@ if authentication_status ==True:
         st.warning('Isi sesuai jumlah stock yang ada di drop point', icon="⚠️")
         st.stop()
 
-    with st.expander("Stock Masuk Hari Ini"):
-      with st.form(key= "form_so", clear_on_submit=True):
-        so_sm = st.selectbox('**Sesi Siang/Malam?**', ('SIANG', 'MALAM'))
-        
-        #sisa stock sebelumnya
-        st.caption('**Stock Masuk Hari Ini** ⤵️' )
-        col3, col4, col5 = st.columns(3)
-        st.write('''<style>
-          [data-testid="column"] {
-              width: calc(33.3333% - 1rem) !important;
-              flex: 1 1 calc(33.3333% - 1rem) !important;
-              min-width: calc(33% - 1rem) !important;
-          }
-          </style>''', unsafe_allow_html=True)
-        with col3:
-          p1 = st.selectbox("Produk", ('','LTK', 'BSK', 'BPK', 'BSK', 'PI6', 'PI8'))
-          p2 = st.selectbox("p2", ('','LTK', 'BSK', 'BPK', 'BSK', 'PI6', 'PI8'), label_visibility="collapsed")
-          p3 = st.selectbox("p3", ('','LTK', 'BSK', 'BPK', 'BSK', 'PI6', 'PI8'), label_visibility="collapsed")
-          p4 = st.selectbox("p4", ('','LTK', 'BSK', 'BPK', 'BSK', 'PI6', 'PI8'), label_visibility="collapsed")
-          p5 = st.selectbox("p5", ('','LTK', 'BSK', 'BPK', 'BSK', 'PI6', 'PI8'), label_visibility="collapsed")
-          p6 = st.selectbox("p6", ('','LTK', 'BSK', 'BPK', 'BSK', 'PI6', 'PI8'), label_visibility="collapsed")      
+  with st.expander("Stock Masuk Hari Ini"):
+    with st.form(key= "form_so", clear_on_submit=True):
+      so_sm = st.selectbox('**Sesi Siang/Malam?**', ('SIANG', 'MALAM'))
+      
+      #stock masuk hari ini
+      st.caption('**Stock Masuk Hari Ini** ⤵️' )
+      col3, col4, col5 = st.columns(3)
+      st.write('''<style>
+        [data-testid="column"] {
+            width: calc(33.3333% - 1rem) !important;
+            flex: 1 1 calc(33.3333% - 1rem) !important;
+            min-width: calc(33% - 1rem) !important;
+        }
+        </style>''', unsafe_allow_html=True)
+      with col3:
+        p1 = st.selectbox("Produk", ('','LTK', 'BSK', 'BPK', 'BSK', 'PI6', 'PI8'))
+        p2 = st.selectbox("p2", ('','LTK', 'BSK', 'BPK', 'BSK', 'PI6', 'PI8'), label_visibility="collapsed")
+        p3 = st.selectbox("p3", ('','LTK', 'BSK', 'BPK', 'BSK', 'PI6', 'PI8'), label_visibility="collapsed")
+        p4 = st.selectbox("p4", ('','LTK', 'BSK', 'BPK', 'BSK', 'PI6', 'PI8'), label_visibility="collapsed")
+        p5 = st.selectbox("p5", ('','LTK', 'BSK', 'BPK', 'BSK', 'PI6', 'PI8'), label_visibility="collapsed")
+        p6 = st.selectbox("p6", ('','LTK', 'BSK', 'BPK', 'BSK', 'PI6', 'PI8'), label_visibility="collapsed")      
 
-        with col4:
-          n1 = st.text_input('Jumlah')
-          n2 = st.text_input('n2', label_visibility="collapsed")
-          n3 = st.text_input('n3', label_visibility="collapsed")
-          n4 = st.text_input('n4', label_visibility="collapsed")
-          n5 = st.text_input('n5', label_visibility="collapsed")
-          n6 = st.text_input('n6', label_visibility="collapsed")
-        
-        with col5:
-          t1 = st.text_input('Expired')
-          t2 = st.text_input('t2', label_visibility="collapsed")
-          t3 = st.text_input('t3', label_visibility="collapsed")
-          t4 = st.text_input('t4', label_visibility="collapsed")
-          t5 = st.text_input('t5', label_visibility="collapsed")
-          t6 = st.text_input('t6', label_visibility="collapsed")
+      with col4:
+        n1 = st.text_input('Jumlah')
+        n2 = st.text_input('n2', label_visibility="collapsed")
+        n3 = st.text_input('n3', label_visibility="collapsed")
+        n4 = st.text_input('n4', label_visibility="collapsed")
+        n5 = st.text_input('n5', label_visibility="collapsed")
+        n6 = st.text_input('n6', label_visibility="collapsed")
+      
+      with col5:
+        t1 = st.text_input('Expired')
+        t2 = st.text_input('t2', label_visibility="collapsed")
+        t3 = st.text_input('t3', label_visibility="collapsed")
+        t4 = st.text_input('t4', label_visibility="collapsed")
+        t5 = st.text_input('t5', label_visibility="collapsed")
+        t6 = st.text_input('t6', label_visibility="collapsed")
 
-        #submit button
-        submitted = st.form_submit_button(label="**SUBMIT**", use_container_width=True, type='primary')
-        if submitted:
-          #show related information
-          st.write("Tanggal/Jam : {}".format(timenow))
-          st.write("Stock Opname : {}".format(so_sm))
+      #submit button
+      submitted = st.form_submit_button(label="**SUBMIT**", use_container_width=True, type='primary')
+      if submitted:
+        #show related information
+        st.write("Tanggal/Jam : {}".format(timenow))
+        st.write("Stock Opname : {}".format(so_sm))
 
-        else:
-          st.warning('Isi sesuai jumlah stock yang ada di drop point', icon="⚠️")
-          st.stop()
+      else:
+        st.warning('Isi sesuai jumlah stock yang ada di drop point', icon="⚠️")
+        st.stop()
 
-    with st.expander("Penjualan Hari Ini"):
-      with st.form(key= "form_so", clear_on_submit=True):
-        so_sm = st.selectbox('**Sesi Siang/Malam?**', ('SIANG', 'MALAM'))
-        
-        #sisa stock sebelumnya
-        st.caption('**Penjualan Hari ini** ⤴️' )
-        col3, col4, col5 = st.columns(3)
-        st.write('''<style>
-          [data-testid="column"] {
-              width: calc(33.3333% - 1rem) !important;
-              flex: 1 1 calc(33.3333% - 1rem) !important;
-              min-width: calc(33% - 1rem) !important;
-          }
-          </style>''', unsafe_allow_html=True)
-        with col3:
-          p1 = st.selectbox("Produk", ('','LTK', 'BSK', 'BPK', 'BSK', 'PI6', 'PI8'))
-          p2 = st.selectbox("p2", ('','LTK', 'BSK', 'BPK', 'BSK', 'PI6', 'PI8'), label_visibility="collapsed")
-          p3 = st.selectbox("p3", ('','LTK', 'BSK', 'BPK', 'BSK', 'PI6', 'PI8'), label_visibility="collapsed")
-          p4 = st.selectbox("p4", ('','LTK', 'BSK', 'BPK', 'BSK', 'PI6', 'PI8'), label_visibility="collapsed")
-          p5 = st.selectbox("p5", ('','LTK', 'BSK', 'BPK', 'BSK', 'PI6', 'PI8'), label_visibility="collapsed")
-          p6 = st.selectbox("p6", ('','LTK', 'BSK', 'BPK', 'BSK', 'PI6', 'PI8'), label_visibility="collapsed")      
+  with st.expander("Penjualan Hari Ini"):
+    with st.form(key= "form_so", clear_on_submit=True):
+      so_sm = st.selectbox('**Sesi Siang/Malam?**', ('SIANG', 'MALAM'))
+      
+      #Penjualan Hari Ini
+      st.caption('**Penjualan Hari Ini** ⤴️' )
+      col3, col4, col5 = st.columns(3)
+      st.write('''<style>
+        [data-testid="column"] {
+            width: calc(33.3333% - 1rem) !important;
+            flex: 1 1 calc(33.3333% - 1rem) !important;
+            min-width: calc(33% - 1rem) !important;
+        }
+        </style>''', unsafe_allow_html=True)
+      with col3:
+        p1 = st.selectbox("Produk", ('','LTK', 'BSK', 'BPK', 'BSK', 'PI6', 'PI8'))
+        p2 = st.selectbox("p2", ('','LTK', 'BSK', 'BPK', 'BSK', 'PI6', 'PI8'), label_visibility="collapsed")
+        p3 = st.selectbox("p3", ('','LTK', 'BSK', 'BPK', 'BSK', 'PI6', 'PI8'), label_visibility="collapsed")
+        p4 = st.selectbox("p4", ('','LTK', 'BSK', 'BPK', 'BSK', 'PI6', 'PI8'), label_visibility="collapsed")
+        p5 = st.selectbox("p5", ('','LTK', 'BSK', 'BPK', 'BSK', 'PI6', 'PI8'), label_visibility="collapsed")
+        p6 = st.selectbox("p6", ('','LTK', 'BSK', 'BPK', 'BSK', 'PI6', 'PI8'), label_visibility="collapsed")      
 
-        with col4:
-          n1 = st.text_input('Jumlah')
-          n2 = st.text_input('n2', label_visibility="collapsed")
-          n3 = st.text_input('n3', label_visibility="collapsed")
-          n4 = st.text_input('n4', label_visibility="collapsed")
-          n5 = st.text_input('n5', label_visibility="collapsed")
-          n6 = st.text_input('n6', label_visibility="collapsed")
-        
-        with col5:
-          t1 = st.text_input('Expired')
-          t2 = st.text_input('t2', label_visibility="collapsed")
-          t3 = st.text_input('t3', label_visibility="collapsed")
-          t4 = st.text_input('t4', label_visibility="collapsed")
-          t5 = st.text_input('t5', label_visibility="collapsed")
-          t6 = st.text_input('t6', label_visibility="collapsed")
+      with col4:
+        n1 = st.text_input('Jumlah')
+        n2 = st.text_input('n2', label_visibility="collapsed")
+        n3 = st.text_input('n3', label_visibility="collapsed")
+        n4 = st.text_input('n4', label_visibility="collapsed")
+        n5 = st.text_input('n5', label_visibility="collapsed")
+        n6 = st.text_input('n6', label_visibility="collapsed")
+      
+      with col5:
+        t1 = st.text_input('Expired')
+        t2 = st.text_input('t2', label_visibility="collapsed")
+        t3 = st.text_input('t3', label_visibility="collapsed")
+        t4 = st.text_input('t4', label_visibility="collapsed")
+        t5 = st.text_input('t5', label_visibility="collapsed")
+        t6 = st.text_input('t6', label_visibility="collapsed")
 
-        #submit button
-        submitted = st.form_submit_button(label="**SUBMIT**", use_container_width=True, type='primary')
-        if submitted:
-          #show related information
-          st.write("Tanggal/Jam : {}".format(timenow))
-          st.write("Stock Opname : {}".format(so_sm))
+      #submit button
+      submitted = st.form_submit_button(label="**SUBMIT**", use_container_width=True, type='primary')
+      if submitted:
+        #show related information
+        st.write("Tanggal/Jam : {}".format(timenow))
+        st.write("Stock Opname : {}".format(so_sm))
 
-        else:
-          st.warning('Isi sesuai jumlah stock yang ada di drop point', icon="⚠️")
-          st.stop()
+      else:
+        st.warning('Isi sesuai jumlah stock yang ada di drop point', icon="⚠️")
+        st.stop()
