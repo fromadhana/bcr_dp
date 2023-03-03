@@ -95,6 +95,14 @@ if authentication_status:
     
     #sisa stock sebelumnya
     col3, col4, col5 = st.columns(3)
+    st.markdown('Sisa stock sebelumnya')
+    st.write('''<style>
+      [data-testid="column"] {
+          width: calc(33.3333% - 1rem) !important;
+          flex: 1 1 calc(33.3333% - 1rem) !important;
+          min-width: calc(33% - 1rem) !important;
+      }
+      </style>''', unsafe_allow_html=True)
     with col3:
       p1 = st.selectbox("Produk", ('','LTK', 'BSK', 'BPK', 'BSK', 'PI6', 'PI8'))
       p2 = st.selectbox("p2", ('','LTK', 'BSK', 'BPK', 'BSK', 'PI6', 'PI8'), label_visibility="collapsed")
@@ -104,13 +112,6 @@ if authentication_status:
       p6 = st.selectbox("p6", ('','LTK', 'BSK', 'BPK', 'BSK', 'PI6', 'PI8'), label_visibility="collapsed")      
 
     with col4:
-      st.write('''<style>
-      [data-testid="column"] {
-          width: calc(33.3333% - 1rem) !important;
-          flex: 1 1 calc(33.3333% - 1rem) !important;
-          min-width: calc(33% - 1rem) !important;
-      }
-      </style>''', unsafe_allow_html=True)
       n1 = st.text_input('Jumlah')
       n2 = st.text_input('n2', label_visibility="collapsed")
       n3 = st.text_input('n3', label_visibility="collapsed")
@@ -119,13 +120,6 @@ if authentication_status:
       n6 = st.text_input('n6', label_visibility="collapsed")
     
     with col5:
-      st.write('''<style>
-      [data-testid="column"] {
-          width: calc(33.3333% - 1rem) !important;
-          flex: 1 1 calc(33.3333% - 1rem) !important;
-          min-width: calc(33% - 1rem) !important;
-      }
-      </style>''', unsafe_allow_html=True)
       t1 = st.text_input('Expired')
       t2 = st.text_input('t2', label_visibility="collapsed")
       t3 = st.text_input('t3', label_visibility="collapsed")
