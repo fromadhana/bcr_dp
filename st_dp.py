@@ -83,7 +83,7 @@ if authentication_status ==True:
   timenow = datetime.now(pytz.timezone('Asia/Jakarta')).strftime("%d-%m-%Y %H:%M:%S")
   time.sleep(1)
 
-  tab1, tab2, tab3 = st.tabs(["Sisa Stock Sebelumnya", "Stock Masuk Hari Ini", "Penjualan Hari Ini"])
+  
   #display streamlit form
   def run_first_tab():
     with tab1:
@@ -240,3 +240,7 @@ if authentication_status ==True:
           st.warning('Isi sesuai jumlah stock yang ada di drop point', icon="⚠️")
           st.stop()
     return None
+  tab1, tab2, tab3 = st.tabs(["Sisa Stock Sebelumnya", "Stock Masuk Hari Ini", "Penjualan Hari Ini"])
+  run_first_tab()
+  run_second_tab()
+  run_third_tab()
