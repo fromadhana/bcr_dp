@@ -46,13 +46,13 @@ def process_for_index(index: int) -> int:
 url = "https://i.ibb.co/M5VyxXS/dp-mobile-3.png"
 st.image(url, use_column_width=True)
 #hide fullscreen image
-hide_img_fs = '''
+"""hide_img_fs = '''
 <style>
 button[title="View fullscreen"]{
     visibility: hidden;}
 </style>
 '''
-st.markdown(hide_img_fs, unsafe_allow_html=True)
+st.markdown(hide_img_fs, unsafe_allow_html=True)"""
 
 #display streamlit form
 with st.form(key= "form_so", clear_on_submit=True):
