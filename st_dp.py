@@ -94,13 +94,12 @@ if authentication_status:
       so_sm = st.selectbox('**Sesi Siang/Malam?**', ('SIANG', 'MALAM'))
     
     #sisa stock sebelumnya
-    st.markdown("**Sisa Stock Sebelumnya** ⏪️")
     col3, col4, col5 = st.columns(3)
     with col3:
       st.write('''<style>
       [data-testid="column"] {
           width: calc(45% - 1rem) !important;
-          flex: 1 1 calc(33.3333% - 2rem) !important;
+          flex: 1 1 calc(33.3333% - 1rem) !important;
           min-width: calc(45% - 1rem) !important;
       }
       </style>''', unsafe_allow_html=True)
@@ -115,7 +114,7 @@ if authentication_status:
       st.write('''<style>
       [data-testid="column"] {
           width: calc(33.3333% - 1rem) !important;
-          flex: 1 1 calc(33.3333% - 2rem) !important;
+          flex: 1 1 calc(33.3333% - 1rem) !important;
           min-width: calc(33% - 1rem) !important;
       }
       </style>''', unsafe_allow_html=True)
@@ -130,7 +129,7 @@ if authentication_status:
       st.write('''<style>
       [data-testid="column"] {
           width: calc(33.3333% - 1rem) !important;
-          flex: 1 1 calc(33.3333% - 2rem) !important;
+          flex: 1 1 calc(33.3333% - 1rem) !important;
           min-width: calc(33% - 1rem) !important;
       }
       </style>''', unsafe_allow_html=True)
