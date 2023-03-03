@@ -97,13 +97,13 @@ if authentication_status:
     st.markdown("**Sisa Stock Sebelumnya** ⏪️")
     col3, col4, col5 = st.columns(3)
     with col3:
-      st.markdown("""
-          <style>
-          [data-testid=column]:nth-of-type(1) [data-testid=stVerticalBlock]{
-              gap: 0rem;
-          }
-          </style>
-          """,unsafe_allow_html=True)
+      st.write('''<style>
+      [data-testid="column"] {
+          width: calc(33.3333% - 1rem) !important;
+          flex: 1 1 calc(33.3333% - 1rem) !important;
+          min-width: calc(33% - 1rem) !important;
+      }
+      </style>''', unsafe_allow_html=True)
       p1 = st.selectbox("p1", ('','Lapis Talas Kujang', 'Bolu Susu Kujang', 'Brownies Panggang Kujang', 'Brownies Sekat Kujang', 'Pie Gurih isi 6', 'Pie Gurih isi 8'), label_visibility="collapsed")
       p2 = st.selectbox("p2", ('','Lapis Talas Kujang', 'Bolu Susu Kujang', 'Brownies Panggang Kujang', 'Brownies Sekat Kujang', 'Pie Gurih isi 6', 'Pie Gurih isi 8'), label_visibility="collapsed")
       p3 = st.selectbox("p3", ('','Lapis Talas Kujang', 'Bolu Susu Kujang', 'Brownies Panggang Kujang', 'Brownies Sekat Kujang', 'Pie Gurih isi 6', 'Pie Gurih isi 8'), label_visibility="collapsed")
@@ -112,13 +112,13 @@ if authentication_status:
       p6 = st.selectbox("p6", ('','Lapis Talas Kujang', 'Bolu Susu Kujang', 'Brownies Panggang Kujang', 'Brownies Sekat Kujang', 'Pie Gurih isi 6', 'Pie Gurih isi 8'), label_visibility="collapsed")      
     
     with col4:
-      st.markdown("""
-          <style>
-          [data-testid=column]:nth-of-type(2) [data-testid=stVerticalBlock]{
-              gap: 0rem;
-          }
-          </style>
-          """,unsafe_allow_html=True)
+      st.write('''<style>
+      [data-testid="column"] {
+          width: calc(33.3333% - 1rem) !important;
+          flex: 1 1 calc(33.3333% - 1rem) !important;
+          min-width: calc(33% - 1rem) !important;
+      }
+      </style>''', unsafe_allow_html=True)
       n1 = st.number_input('n1', min_value=0, max_value=100, step=1, label_visibility="collapsed")
       n2 = st.number_input('n2', min_value=0, max_value=100, step=1, label_visibility="collapsed")
       n3 = st.number_input('n3', min_value=0, max_value=100, step=1, label_visibility="collapsed")
@@ -127,13 +127,13 @@ if authentication_status:
       n6 = st.number_input('n6', min_value=0, max_value=100, step=1, label_visibility="collapsed")
     
     with col5:
-      st.markdown("""
-          <style>
-          [data-testid=column]:nth-of-type(3) [data-testid=stVerticalBlock]{
-              gap: 0rem;
-          }
-          </style>
-          """,unsafe_allow_html=True)
+      st.write('''<style>
+      [data-testid="column"] {
+          width: calc(33.3333% - 1rem) !important;
+          flex: 1 1 calc(33.3333% - 1rem) !important;
+          min-width: calc(33% - 1rem) !important;
+      }
+      </style>''', unsafe_allow_html=True)
       t1 = st.date_input('t1', label_visibility="collapsed", help="tanggal expired")
       t2 = st.date_input('t2', label_visibility="collapsed", help="tanggal expired")
       t3 = st.date_input('t3', label_visibility="collapsed", help="tanggal expired")
