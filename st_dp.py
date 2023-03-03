@@ -96,13 +96,6 @@ if authentication_status:
     #sisa stock sebelumnya
     col3, col4, col5 = st.columns(3)
     with col3:
-      st.write('''<style>
-      [data-testid="column"] {
-          width: calc(45% - 1rem) !important;
-          flex: 1 1 calc(33.3333% - 1rem) !important;
-          min-width: calc(45% - 1rem) !important;
-      }
-      </style>''', unsafe_allow_html=True)
       p1 = st.selectbox("Produk", ('','LTK', 'BSK', 'BPK', 'BSK', 'PI6', 'PI8'))
       p2 = st.selectbox("p2", ('','LTK', 'BSK', 'BPK', 'BSK', 'PI6', 'PI8'), label_visibility="collapsed")
       p3 = st.selectbox("p3", ('','LTK', 'BSK', 'BPK', 'BSK', 'PI6', 'PI8'), label_visibility="collapsed")
