@@ -54,7 +54,7 @@ if authentication_status == None:
   st.warning("Mohon isi Username & Password yang sudah diberikan!")
 
 #if login success, display form so page
-if authentication_status:
+if authentication_status ==True:
   #caching 
   @st.cache_data
   def process_for_index(index: int) -> int:
@@ -65,6 +65,8 @@ if authentication_status:
   authenticator.logout("Logout", "sidebar")
   st.sidebar.title(f"Hi, {name}!")
 
+  #subheader
+  st.subheader("**Form Stock Opname Drop Point** 🏠")
   #banner information
   url = "https://i.ibb.co/y0PvNK7/dp-mobile-7.png"
   st.image(url, use_column_width=True)
@@ -77,8 +79,6 @@ if authentication_status:
   '''
   st.markdown(hide_img_fs, unsafe_allow_html=True)
 
-  #subheader
-  st.subheader("**Form Stock Opname Drop Point** 🏠")
   #datetime now
   timenow = datetime.now(pytz.timezone('Asia/Jakarta')).strftime("%d-%m-%Y %H:%M:%S")
   time.sleep(1)
