@@ -94,7 +94,7 @@ if authentication_status:
       so_sm = st.selectbox('**Sesi Siang/Malam?**', ('SIANG', 'MALAM'))
     
     #sisa stock sebelumnya
-    st.markdown("**Sisa Stock Sebelumnya** ⏪️")
+    st.caption("**Sisa Stock Sebelumnya** ⏪️")
     col3, col4, col5 = st.columns(3)
     with col3:
       st.write('''<style>
@@ -119,12 +119,12 @@ if authentication_status:
           min-width: calc(33% - 1rem) !important;
       }
       </style>''', unsafe_allow_html=True)
-      n1 = st.text_input('Jumlah', max_chars=3)
-      n2 = st.text_input('n2', max_chars=3, label_visibility="collapsed")
-      n3 = st.text_input('n3', max_chars=3, label_visibility="collapsed")
-      n4 = st.text_input('n4', max_chars=3, label_visibility="collapsed")
-      n5 = st.text_input('n5', max_chars=3, label_visibility="collapsed")
-      n6 = st.text_input('n6', max_chars=3, label_visibility="collapsed")
+      n1 = st.text_input('Jumlah')
+      n2 = st.text_input('n2', label_visibility="collapsed")
+      n3 = st.text_input('n3', label_visibility="collapsed")
+      n4 = st.text_input('n4', label_visibility="collapsed")
+      n5 = st.text_input('n5', label_visibility="collapsed")
+      n6 = st.text_input('n6', label_visibility="collapsed")
     
     with col5:
       st.write('''<style>
@@ -134,12 +134,12 @@ if authentication_status:
           min-width: calc(33% - 1rem) !important;
       }
       </style>''', unsafe_allow_html=True)
-      t1 = st.text_input('Expired', max_chars=3)
-      t2 = st.text_input('t2', max_chars=3, label_visibility="collapsed", help="tanggal expired")
-      t3 = st.text_input('t3', max_chars=3, label_visibility="collapsed", help="tanggal expired")
-      t4 = st.text_input('t4', max_chars=3, label_visibility="collapsed", help="tanggal expired")
-      t5 = st.text_input('t5', max_chars=3, label_visibility="collapsed", help="tanggal expired")
-      t6 = st.text_input('t6', max_chars=3, label_visibility="collapsed", help="tanggal expired")
+      t1 = st.text_input('Expired')
+      t2 = st.text_input('t2', label_visibility="collapsed")
+      t3 = st.text_input('t3', label_visibility="collapsed")
+      t4 = st.text_input('t4', label_visibility="collapsed")
+      t5 = st.text_input('t5', label_visibility="collapsed")
+      t6 = st.text_input('t6', label_visibility="collapsed")
 
     #submit button
     submitted = st.form_submit_button(label="**SUBMIT**", use_container_width=True, type='primary')
