@@ -85,13 +85,14 @@ if authentication_status:
     col1, col2 = st.columns(2)
     with col1:
       #datetime now
-      tp = st.date_input(label="**Tanggal Stock Opname** 📅")
+      tp = st.slider("**Tanggal** 📅", value=datetime(2023, 1, 1, 9, 30), format="DD/MM/YY")
+      #tp = st.date_input(label="**Tanggal** 📅")
       timenow = datetime.now(pytz.timezone('Asia/Jakarta')).strftime("%d-%m-%Y %H:%M:%S")
       time.sleep(1)
 
     with col2:
       #selectbox for stock opname session
-      so_sm = st.selectbox('**Stock Opname Siang/Malam**?🌞🌙', ('SIANG', 'MALAM'))
+      so_sm = st.selectbox('**Waktu Stock?** 🌞🌙', ('SIANG', 'MALAM'))
     
     #sisa stock sebelumnya
     st.markdown("**Sisa Stock Sebelumnya** ⏪️")
@@ -134,13 +135,13 @@ if authentication_status:
           min-width: calc(33% - 1rem) !important;
       }
       </style>''', unsafe_allow_html=True)
-      t1 = st.date_input('t1', label_visibility="collapsed", help="tanggal expired")
-      t2 = st.date_input('t2', label_visibility="collapsed", help="tanggal expired")
-      t3 = st.date_input('t3', label_visibility="collapsed", help="tanggal expired")
-      t4 = st.date_input('t4', label_visibility="collapsed", help="tanggal expired")
-      t5 = st.date_input('t5', label_visibility="collapsed", help="tanggal expired")
-      t6 = st.date_input('t6', label_visibility="collapsed", help="tanggal expired")
-
+      t1 = st.slider("t1", value=datetime(2023, 1, 1, 9, 30), format="DD/MM/YY", label_visibility="collapsed")
+      t2 = st.slider("t2", value=datetime(2023, 1, 1, 9, 30), format="DD/MM/YY", label_visibility="collapsed")
+      t3 = st.slider("t3", value=datetime(2023, 1, 1, 9, 30), format="DD/MM/YY", label_visibility="collapsed")
+      t4 = st.slider("t4", value=datetime(2023, 1, 1, 9, 30), format="DD/MM/YY", label_visibility="collapsed")
+      t5 = st.slider("t5", value=datetime(2023, 1, 1, 9, 30), format="DD/MM/YY", label_visibility="collapsed")
+      t6 = st.slider("t6", value=datetime(2023, 1, 1, 9, 30), format="DD/MM/YY", label_visibility="collapsed")
+      
     #submit button
     submitted = st.form_submit_button(label="**SUBMIT**", use_container_width=True, type='primary')
     if submitted:
