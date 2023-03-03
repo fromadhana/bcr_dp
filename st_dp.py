@@ -59,12 +59,26 @@ with st.form(key= "form_so", clear_on_submit=True):
    col1, col2 = st.columns(2)
    with col1:
      #datetime now
+     st.markdown("""
+    <style>
+    [data-testid=column]:nth-of-type(1) [data-testid=stVerticalBlock]{
+        gap: 0rem;
+    }
+    </style>
+    """,unsafe_allow_html=True)
      tp = st.date_input(label="**Tanggal Stock Opname** 📅")
      timenow = datetime.now(pytz.timezone('Asia/Jakarta')).strftime("%d-%m-%Y %H:%M:%S")
      time.sleep(1)
 
    with col2:
      #selectbox for stock opname session
+     st.markdown("""
+    <style>
+    [data-testid=column]:nth-of-type(1) [data-testid=stVerticalBlock]{
+        gap: 0rem;
+    }
+    </style>
+    """,unsafe_allow_html=True)
      so_sm = st.selectbox('**Stock Opname Siang/Malam**?🌞🌙', ('SIANG', 'MALAM'))
      
    #submit button
