@@ -97,7 +97,7 @@ if authentication_status:
     st.markdown("**Sisa Stock Sebelumnya** ⏪️")
     st.markdown("""
                 <style>
-                [data-testid=column]:nth-of-type(2) [data-testid=stVerticalBlock]{
+                [data-testid=column]:nth-of-type(0) [data-testid=stVerticalBlock]{
                     gap: 0rem;
                 }
                 </style>
