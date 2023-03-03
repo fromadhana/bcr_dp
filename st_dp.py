@@ -104,12 +104,12 @@ if authentication_status:
           min-width: calc(45% - 1rem) !important;
       }
       </style>''', unsafe_allow_html=True)
-      p1 = st.selectbox("p1", ('','Lapis Talas Kujang', 'Bolu Susu Kujang', 'Brownies Panggang Kujang', 'Brownies Sekat Kujang', 'Pie Gurih isi 6', 'Pie Gurih isi 8'), label_visibility="collapsed")
-      p2 = st.selectbox("p2", ('','Lapis Talas Kujang', 'Bolu Susu Kujang', 'Brownies Panggang Kujang', 'Brownies Sekat Kujang', 'Pie Gurih isi 6', 'Pie Gurih isi 8'), label_visibility="collapsed")
-      p3 = st.selectbox("p3", ('','Lapis Talas Kujang', 'Bolu Susu Kujang', 'Brownies Panggang Kujang', 'Brownies Sekat Kujang', 'Pie Gurih isi 6', 'Pie Gurih isi 8'), label_visibility="collapsed")
-      p4 = st.selectbox("p4", ('','Lapis Talas Kujang', 'Bolu Susu Kujang', 'Brownies Panggang Kujang', 'Brownies Sekat Kujang', 'Pie Gurih isi 6', 'Pie Gurih isi 8'), label_visibility="collapsed")
-      p5 = st.selectbox("p5", ('','Lapis Talas Kujang', 'Bolu Susu Kujang', 'Brownies Panggang Kujang', 'Brownies Sekat Kujang', 'Pie Gurih isi 6', 'Pie Gurih isi 8'), label_visibility="collapsed")
-      p6 = st.selectbox("p6", ('','Lapis Talas Kujang', 'Bolu Susu Kujang', 'Brownies Panggang Kujang', 'Brownies Sekat Kujang', 'Pie Gurih isi 6', 'Pie Gurih isi 8'), label_visibility="collapsed")      
+      p1 = st.selectbox("Produk", ('','LTK', 'BSK', 'BPK', 'BSK', 'PI6', 'PI8'))
+      p2 = st.selectbox("p2", ('','LTK', 'BSK', 'BPK', 'BSK', 'PI6', 'PI8'), label_visibility="collapsed")
+      p3 = st.selectbox("p3", ('','LTK', 'BSK', 'BPK', 'BSK', 'PI6', 'PI8'), label_visibility="collapsed")
+      p4 = st.selectbox("p4", ('','LTK', 'BSK', 'BPK', 'BSK', 'PI6', 'PI8'), label_visibility="collapsed")
+      p5 = st.selectbox("p5", ('','LTK', 'BSK', 'BPK', 'BSK', 'PI6', 'PI8'), label_visibility="collapsed")
+      p6 = st.selectbox("p6", ('','LTK', 'BSK', 'BPK', 'BSK', 'PI6', 'PI8'), label_visibility="collapsed")      
 
     with col4:
       st.write('''<style>
@@ -119,12 +119,12 @@ if authentication_status:
           min-width: calc(33% - 1rem) !important;
       }
       </style>''', unsafe_allow_html=True)
-      n1 = st.number_input('n1', min_value=0, max_value=100, step=1, label_visibility="collapsed")
-      n2 = st.number_input('n2', min_value=0, max_value=100, step=1, label_visibility="collapsed")
-      n3 = st.number_input('n3', min_value=0, max_value=100, step=1, label_visibility="collapsed")
-      n4 = st.number_input('n4', min_value=0, max_value=100, step=1, label_visibility="collapsed")
-      n5 = st.number_input('n5', min_value=0, max_value=100, step=1, label_visibility="collapsed")
-      n6 = st.number_input('n6', min_value=0, max_value=100, step=1, label_visibility="collapsed")
+      n1 = st.text_input('Jumlah', max_chars=3)
+      n2 = st.text_input('n2', max_chars=3, label_visibility="collapsed")
+      n3 = st.text_input('n3', max_chars=3, label_visibility="collapsed")
+      n4 = st.text_input('n4', max_chars=3, label_visibility="collapsed")
+      n5 = st.text_input('n5', max_chars=3, label_visibility="collapsed")
+      n6 = st.text_input('n6', max_chars=3, label_visibility="collapsed")
     
     with col5:
       st.write('''<style>
@@ -134,12 +134,12 @@ if authentication_status:
           min-width: calc(33% - 1rem) !important;
       }
       </style>''', unsafe_allow_html=True)
-      t1 = st.text_input('t1', label_visibility="collapsed", help="tanggal expired")
-      t2 = st.text_input('t2', label_visibility="collapsed", help="tanggal expired")
-      t3 = st.text_input('t3', label_visibility="collapsed", help="tanggal expired")
-      t4 = st.text_input('t4', label_visibility="collapsed", help="tanggal expired")
-      t5 = st.text_input('t5', label_visibility="collapsed", help="tanggal expired")
-      t6 = st.text_input('t6', label_visibility="collapsed", help="tanggal expired")
+      t1 = st.text_input('Expired', max_chars=3)
+      t2 = st.text_input('t2', max_chars=3, label_visibility="collapsed", help="tanggal expired")
+      t3 = st.text_input('t3', max_chars=3, label_visibility="collapsed", help="tanggal expired")
+      t4 = st.text_input('t4', max_chars=3, label_visibility="collapsed", help="tanggal expired")
+      t5 = st.text_input('t5', max_chars=3, label_visibility="collapsed", help="tanggal expired")
+      t6 = st.text_input('t6', max_chars=3, label_visibility="collapsed", help="tanggal expired")
 
     #submit button
     submitted = st.form_submit_button(label="**SUBMIT**", use_container_width=True, type='primary')
