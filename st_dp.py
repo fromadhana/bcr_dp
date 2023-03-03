@@ -43,7 +43,7 @@ def process_for_index(index: int) -> int:
     return 2 * index + 1
 
 #banner information
-url = "https://i.ibb.co/M5VyxXS/dp-mobile-3.png"
+url = "https://i.ibb.co/qRzKYr1/dp-mobile-4.png"
 st.image(url, use_column_width=True)
 #hide fullscreen image
 hide_img_fs = '''
