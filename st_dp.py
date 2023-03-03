@@ -82,7 +82,7 @@ if authentication_status:
   #datetime now
   timenow = datetime.now(pytz.timezone('Asia/Jakarta')).strftime("%d-%m-%Y %H:%M:%S")
   time.sleep(1)
-  st.write(" ".format(timenow))
+  st.write("Tanggal/Jam : {}".format(timenow))
 
   #display streamlit form
   with st.form(key= "form_so", clear_on_submit=True):
