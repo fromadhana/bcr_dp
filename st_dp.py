@@ -7,10 +7,13 @@ author: f.romadhana@gmail.com
 import pytz
 import time
 import pandas as pd
+import db_deta as db
 from PIL import Image
 import streamlit as st
 from time import sleep
 from datetime import datetime
+import streamlit_authenticator as stauth
+
 
 #set page configuration
 st.set_page_config(
@@ -35,59 +38,82 @@ hide_menu_style = """
           </style>
           """
 st.markdown(hide_menu_style, unsafe_allow_html=True)
+ 
+# ---USER AUTHENTICATION---
+users = db.fetch_all_user()
+username = [user["key"] for user in users]
+names = [user["name"] for user in users]
+hashed_password =[user["password"] for user in users]
+authenticator = stauth.Authenticate(names, username, hashed_password, 
+                                    "form_so", "sodp", cookie_expiry_days=30)
+name, authentication_status, username = authenticator.login("Login", "main")
 
-#caching 
-@st.cache_data
-def process_for_index(index: int) -> int:
-    sleep(0.5)
-    return 2 * index + 1
+if authentication_status == False:
+  st.error("Username & Password tidak terdaftar!")
+if authentication_status == None:
+  st.warning("Mohon isi Username & Password yang sudah diberikan!")
 
-#banner information
-url = "https://i.ibb.co/y0PvNK7/dp-mobile-7.png"
-st.image(url, use_column_width=True)
-#hide fullscreen image
-hide_img_fs = '''
-<style>
-button[title="View fullscreen"]{
-    visibility: hidden;}
-</style>
-'''
-st.markdown(hide_img_fs, unsafe_allow_html=True)
+#if login success, display form so page
+if authentication_status:
+  #caching 
+  @st.cache_data
+  def process_for_index(index: int) -> int:
+      sleep(0.5)
+      return 2 * index + 1
+  
+  #sidebar
+  authenticator.logout("Logout", "sidebar")
+  st.sidebar.title(f"Hi, {name}!")
 
-#display streamlit form
-with st.form(key= "form_so", clear_on_submit=True):
-   col1, col2 = st.columns(2)
-   with col1:
-     #datetime now
-     st.markdown("""
-    <style>
-    [data-testid=column]:nth-of-type(1) [data-testid=stVerticalBlock]{
-        gap: 0rem;
-    }
-    </style>
-    """,unsafe_allow_html=True)
-     tp = st.date_input(label="**Tanggal Stock Opname** 📅")
-     timenow = datetime.now(pytz.timezone('Asia/Jakarta')).strftime("%d-%m-%Y %H:%M:%S")
-     time.sleep(1)
+  #banner information
+  url = "https://i.ibb.co/y0PvNK7/dp-mobile-7.png"
+  st.image(url, use_column_width=True)
+  #hide fullscreen image
+  hide_img_fs = '''
+  <style>
+  button[title="View fullscreen"]{
+      visibility: hidden;}
+  </style>
+  '''
+  st.markdown(hide_img_fs, unsafe_allow_html=True)
 
-   with col2:
-     #selectbox for stock opname session
-     st.markdown("""
-    <style>
-    [data-testid=column]:nth-of-type(2) [data-testid=stVerticalBlock]{
-        gap: 0rem;
-    }
-    </style>
-    """,unsafe_allow_html=True)
-     so_sm = st.selectbox('**Stock Opname Siang/Malam**?🌞🌙', ('SIANG', 'MALAM'))
-     
-   #submit button
-   submitted = st.form_submit_button(label="**SUBMIT**", use_container_width=True, type='primary')
-   if submitted:
-    #show related information
-    st.write("Tanggal/Jam : {}".format(timenow))
-    st.write("Stock Opname : {}".format(so_sm))
+  #subheader
+  st.subheader("FORM STOCK OPNAME DROP POINT 🏠")
 
-   else:
-    st.warning('Isi sesuai jumlah stock yang ada di drop point', icon="⚠️")
-    st.stop()
+  #display streamlit form
+  with st.form(key= "form_so", clear_on_submit=True):
+    col1, col2 = st.columns(2)
+    with col1:
+      #datetime now
+      st.markdown("""
+      <style>
+      [data-testid=column]:nth-of-type(1) [data-testid=stVerticalBlock]{
+          gap: 0rem;
+      }
+      </style>
+      """,unsafe_allow_html=True)
+      tp = st.date_input(label="**Tanggal Stock Opname** 📅")
+      timenow = datetime.now(pytz.timezone('Asia/Jakarta')).strftime("%d-%m-%Y %H:%M:%S")
+      time.sleep(1)
+
+    with col2:
+      #selectbox for stock opname session
+      st.markdown("""
+      <style>
+      [data-testid=column]:nth-of-type(2) [data-testid=stVerticalBlock]{
+          gap: 0rem;
+      }
+      </style>
+      """,unsafe_allow_html=True)
+      so_sm = st.selectbox('**Stock Opname Siang/Malam**?🌞🌙', ('SIANG', 'MALAM'))
+      
+    #submit button
+    submitted = st.form_submit_button(label="**SUBMIT**", use_container_width=True, type='primary')
+    if submitted:
+      #show related information
+      st.write("Tanggal/Jam : {}".format(timenow))
+      st.write("Stock Opname : {}".format(so_sm))
+
+    else:
+      st.warning('Isi sesuai jumlah stock yang ada di drop point', icon="⚠️")
+      st.stop()

@@ -1,6 +1,9 @@
-pandas
-streamlit==1.19.0
-shillelagh[all]
-google-auth
+deta
 pytz
+pandas
 Pillow
+google-auth
+shillelagh[all]
+protobuf==3.15.0
+streamlit==1.19.0
+streamlit-authenticator==0.1.5

@@ -9,3 +9,10 @@
 
 #Ignore all secret
 secrets.toml
+
+#Ignore upload db
+upload_db.py
+
+#Ignore pycache
+__pycache__
+*.pyc
