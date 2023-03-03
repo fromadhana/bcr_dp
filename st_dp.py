@@ -78,11 +78,10 @@ if authentication_status:
   st.markdown(hide_img_fs, unsafe_allow_html=True)
 
   #subheader
-  st.caption("**FORM STOCK OPNAME DROP POINT** 🏠")
+  st.subheader("**Form Stock Opname Drop Point** 🏠")
   #datetime now
   timenow = datetime.now(pytz.timezone('Asia/Jakarta')).strftime("%d-%m-%Y %H:%M:%S")
   time.sleep(1)
-  st.write("Tanggal/Jam : {}".format(timenow))
 
   #display streamlit form
   with st.form(key= "form_so", clear_on_submit=True):
