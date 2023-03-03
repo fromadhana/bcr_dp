@@ -95,8 +95,8 @@ if authentication_status:
     
     #sisa stock sebelumnya
     col3, col4, col5 = st.columns(3)
+    st.markdown("**Sisa Stock Sebelumnya** ⏪️")
     with col3:
-      st.markdown("**Sisa Stock Sebelumnya** ⏪️")
       st.write('''<style>
       [data-testid="column"] {
           width: calc(45% - 1rem) !important;
