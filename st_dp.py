@@ -94,9 +94,9 @@ if authentication_status:
       so_sm = st.selectbox('**Sesi Siang/Malam?**', ('SIANG', 'MALAM'))
     
     #sisa stock sebelumnya
-    st.caption("**Sisa Stock Sebelumnya** ⏪️")
     col3, col4, col5 = st.columns(3)
     with col3:
+      st.markdown("**Sisa Stock Sebelumnya** ⏪️")
       st.write('''<style>
       [data-testid="column"] {
           width: calc(45% - 1rem) !important;
