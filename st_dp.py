@@ -85,13 +85,13 @@ if authentication_status:
     col1, col2 = st.columns(2)
     with col1:
       #datetime now
-      tp = st.date_input(label="**Tanggal**")
+      tp = st.date_input(label="**Tanggal Hari ini**")
       timenow = datetime.now(pytz.timezone('Asia/Jakarta')).strftime("%d-%m-%Y %H:%M:%S")
       time.sleep(1)
 
     with col2:
       #selectbox for stock opname session
-      so_sm = st.selectbox('**Stock Opname** 🌞🌙', ('SIANG', 'MALAM'))
+      so_sm = st.selectbox('**Sesi Siang/Malam?**', ('SIANG', 'MALAM'))
     
     #sisa stock sebelumnya
     st.markdown("**Sisa Stock Sebelumnya** ⏪️")
@@ -99,9 +99,9 @@ if authentication_status:
     with col3:
       st.write('''<style>
       [data-testid="column"] {
-          width: calc(33.3333% - 1rem) !important;
+          width: calc(45% - 1rem) !important;
           flex: 1 1 calc(33.3333% - 1rem) !important;
-          min-width: calc(33% - 1rem) !important;
+          min-width: calc(45% - 1rem) !important;
       }
       </style>''', unsafe_allow_html=True)
       p1 = st.selectbox("p1", ('','Lapis Talas Kujang', 'Bolu Susu Kujang', 'Brownies Panggang Kujang', 'Brownies Sekat Kujang', 'Pie Gurih isi 6', 'Pie Gurih isi 8'), label_visibility="collapsed")
@@ -110,7 +110,7 @@ if authentication_status:
       p4 = st.selectbox("p4", ('','Lapis Talas Kujang', 'Bolu Susu Kujang', 'Brownies Panggang Kujang', 'Brownies Sekat Kujang', 'Pie Gurih isi 6', 'Pie Gurih isi 8'), label_visibility="collapsed")
       p5 = st.selectbox("p5", ('','Lapis Talas Kujang', 'Bolu Susu Kujang', 'Brownies Panggang Kujang', 'Brownies Sekat Kujang', 'Pie Gurih isi 6', 'Pie Gurih isi 8'), label_visibility="collapsed")
       p6 = st.selectbox("p6", ('','Lapis Talas Kujang', 'Bolu Susu Kujang', 'Brownies Panggang Kujang', 'Brownies Sekat Kujang', 'Pie Gurih isi 6', 'Pie Gurih isi 8'), label_visibility="collapsed")      
-    
+
     with col4:
       st.write('''<style>
       [data-testid="column"] {
@@ -132,7 +132,6 @@ if authentication_status:
           width: calc(33.3333% - 1rem) !important;
           flex: 1 1 calc(33.3333% - 1rem) !important;
           min-width: calc(33% - 1rem) !important;
-          font-size:4px;
       }
       </style>''', unsafe_allow_html=True)
       t1 = st.text_input('t1', label_visibility="collapsed", help="tanggal expired")
