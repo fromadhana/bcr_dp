@@ -87,7 +87,7 @@ if authentication_status ==True:
   #display streamlit form
   with tab1:
     st.header("Sisa Stock Sebelumnya")
-    with st.form(key= "form_so", clear_on_submit=True):
+    with st.form(key= "so_before", clear_on_submit=True):
       so_sm = st.selectbox('**Sesi Siang/Malam?**', ('SIANG', 'MALAM'))
       
       #sisa stock sebelumnya
@@ -137,7 +137,7 @@ if authentication_status ==True:
 
   with tab2:
     st.header("Stock Masuk Hari Ini")
-    with st.form(key= "form_so", clear_on_submit=True):
+    with st.form(key= "so_today", clear_on_submit=True):
       so_sm = st.selectbox('**Sesi Siang/Malam?**', ('SIANG', 'MALAM'))
       
       #stock masuk hari ini
@@ -187,7 +187,7 @@ if authentication_status ==True:
 
   with tab3: 
     st.header("Penjualan Hari Ini")
-    with st.form(key= "form_so", clear_on_submit=True):
+    with st.form(key= "so_endday", clear_on_submit=True):
       so_sm = st.selectbox('**Sesi Siang/Malam?**', ('SIANG', 'MALAM'))
       
       #Penjualan Hari Ini
