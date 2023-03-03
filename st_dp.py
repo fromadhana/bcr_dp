@@ -85,7 +85,7 @@ if authentication_status:
     col1, col2 = st.columns(2)
     with col1:
       #datetime now
-      tp = st.date_input(label="**Tanggal** 📅")
+      tp = st.date_input(label="**Tanggal**")
       timenow = datetime.now(pytz.timezone('Asia/Jakarta')).strftime("%d-%m-%Y %H:%M:%S")
       time.sleep(1)
 
@@ -135,12 +135,12 @@ if authentication_status:
           font-size:4px;
       }
       </style>''', unsafe_allow_html=True)
-      t1 = st.date_input('t1', label_visibility="collapsed", help="tanggal expired")
-      t2 = st.date_input('t2', label_visibility="collapsed", help="tanggal expired")
-      t3 = st.date_input('t3', label_visibility="collapsed", help="tanggal expired")
-      t4 = st.date_input('t4', label_visibility="collapsed", help="tanggal expired")
-      t5 = st.date_input('t5', label_visibility="collapsed", help="tanggal expired")
-      t6 = st.date_input('t6', label_visibility="collapsed", help="tanggal expired")
+      t1 = st.text_input('t1', label_visibility="collapsed", help="tanggal expired")
+      t2 = st.text_input('t2', label_visibility="collapsed", help="tanggal expired")
+      t3 = st.text_input('t3', label_visibility="collapsed", help="tanggal expired")
+      t4 = st.text_input('t4', label_visibility="collapsed", help="tanggal expired")
+      t5 = st.text_input('t5', label_visibility="collapsed", help="tanggal expired")
+      t6 = st.text_input('t6', label_visibility="collapsed", help="tanggal expired")
 
     #submit button
     submitted = st.form_submit_button(label="**SUBMIT**", use_container_width=True, type='primary')
