@@ -21,10 +21,10 @@ st.set_page_config(
 #set padding page
 st.markdown(f""" <style>
       .block-container{{
-        padding-top: 1rem;
+        padding-top: 0rem;
         padding-right: 1rem;
         padding-left: 1rem;
-        padding-bottom: 1rem;
+        padding-bottom: 0rem;
     }} </style> """, unsafe_allow_html=True)
 
 #hide streamlit menu and footer
@@ -43,7 +43,7 @@ def process_for_index(index: int) -> int:
     return 2 * index + 1
 
 #banner information
-url = "https://i.ibb.co/BLgW9MJ/dp-mobile-2.png"
+url = "https://i.ibb.co/M5VyxXS/dp-mobile-3.png"
 st.image(url, use_column_width=True)
 #hide fullscreen image
 hide_img_fs = '''
