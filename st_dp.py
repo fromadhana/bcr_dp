@@ -79,19 +79,14 @@ if authentication_status:
 
   #subheader
   st.caption("**FORM STOCK OPNAME DROP POINT** 🏠")
+  #datetime now
+  timenow = datetime.now(pytz.timezone('Asia/Jakarta')).strftime("%d-%m-%Y %H:%M:%S")
+  time.sleep(1)
+  st.write(" ".format(timenow))
 
   #display streamlit form
   with st.form(key= "form_so", clear_on_submit=True):
-    col1, col2 = st.columns(2)
-    with col1:
-      #datetime now
-      timenow = datetime.now(pytz.timezone('Asia/Jakarta')).strftime("%d-%m-%Y %H:%M:%S")
-      time.sleep(1)
-      st.write(" ".format(timenow))
-    
-    with col2:
-      #selectbox for stock opname session
-      so_sm = st.selectbox('**Sesi Siang/Malam?**', ('SIANG', 'MALAM'))
+    so_sm = st.selectbox('**Sesi Siang/Malam?**', ('SIANG', 'MALAM'))
     
     #sisa stock sebelumnya
     st.caption('**Sisa stock sebelumnya** ⏪️' )
