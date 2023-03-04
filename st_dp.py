@@ -44,6 +44,7 @@ users = db.fetch_all_user()
 username = [user["key"] for user in users]
 names = [user["name"] for user in users]
 hashed_password =[user["password"] for user in users]
+
 authenticator = stauth.Authenticate(names, username, hashed_password, 
                                     "form_so", "sodp", cookie_expiry_days=30)
 name, authentication_status, username = authenticator.login("Login", "main")
@@ -65,24 +66,9 @@ if authentication_status ==True:
   authenticator.logout("Logout", "sidebar")
   st.sidebar.title(f"Hi, {name}!")
 
-  #subheader
-  st.subheader("**Form Stock Opname Drop Point** 🏠")
-  #banner information
-  url = "https://i.ibb.co/y0PvNK7/dp-mobile-7.png"
-  st.image(url, use_column_width=True)
-  #hide fullscreen image
-  hide_img_fs = '''
-  <style>
-  button[title="View fullscreen"]{
-      visibility: hidden;}
-  </style>
-  '''
-  st.markdown(hide_img_fs, unsafe_allow_html=True)
-
   #datetime now
   timenow = datetime.now(pytz.timezone('Asia/Jakarta')).strftime("%d-%m-%Y %H:%M:%S")
   time.sleep(1)
-
   
   #display streamlit form
   def main_page():
@@ -105,12 +91,12 @@ if authentication_status ==True:
                           </style>""",
                         unsafe_allow_html=True)
         with col1:
-            pss1 = st.selectbox("Produk", ('','LTK', 'BSK', 'BRP', 'BRS', 'PI6', 'PI8'))
-            pss2 = st.selectbox("p2", ('','LTK', 'BSK', 'BRP', 'BRS', 'PI6', 'PI8'), label_visibility="collapsed")
-            pss3 = st.selectbox("p3", ('','LTK', 'BSK', 'BRP', 'BRS', 'PI6', 'PI8'), label_visibility="collapsed")
-            pss4 = st.selectbox("p4", ('','LTK', 'BSK', 'BRP', 'BRS', 'PI6', 'PI8'), label_visibility="collapsed")
-            pss5 = st.selectbox("p5", ('','LTK', 'BSK', 'BRP', 'BRS', 'PI6', 'PI8'), label_visibility="collapsed")
-            pss6 = st.selectbox("p6", ('','LTK', 'BSK', 'BRP', 'BRS', 'PI6', 'PI8'), label_visibility="collapsed")      
+            pss1 = st.selectbox("Produk", ('','Lapis', 'Bolu', 'Brokat', 'Brokat', 'Pie 6', 'Pie 8', "Balok"))
+            pss2 = st.selectbox("p2", ('','Lapis', 'Bolu', 'Brokat', 'Brokat', 'Pie 6', 'Pie 8', "Balok"), label_visibility="collapsed")
+            pss3 = st.selectbox("p3", ('','Lapis', 'Bolu', 'Brokat', 'Brokat', 'Pie 6', 'Pie 8', "Balok"), label_visibility="collapsed")
+            pss4 = st.selectbox("p4", ('','Lapis', 'Bolu', 'Brokat', 'Brokat', 'Pie 6', 'Pie 8', "Balok"), label_visibility="collapsed")
+            pss5 = st.selectbox("p5", ('','Lapis', 'Bolu', 'Brokat', 'Brokat', 'Pie 6', 'Pie 8', "Balok"), label_visibility="collapsed")
+            pss6 = st.selectbox("p6", ('','Lapis', 'Bolu', 'Brokat', 'Brokat', 'Pie 6', 'Pie 8', "Balok"), label_visibility="collapsed")      
 
         with col2:
             nss1 = st.number_input('Jumlah', step=1)
