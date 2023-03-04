@@ -143,17 +143,21 @@ if authentication_status ==True:
           container.write(":orange[Jumlah Sisa Stock Kemarin]")
           st.table(df1)
           #show related information
-          st.markdown("""
-                      <style>
-                      [data-testid=column]:nth-of-type(4) [data-testid=stVerticalBlock]{
-                          gap: 0rem;
-                      }
-                      </style>
-                      """,unsafe_allow_html=True)
-          st.write("Drop Point: {}".format(name))
-          st.write("Tanggal/Jam : {}".format(timenow))
-          st.write("Total Sisa Stock Kemarin : {}".format(sum_nss))
-
+          col3, col4 = st.columns(2)
+          with col3:
+              st.markdown("""
+                          <style>
+                          [data-testid=column]:nth-of-type(3) [data-testid=stVerticalBlock]{
+                              gap: 0rem;
+                          }
+                          </style>
+                          """,unsafe_allow_html=True)
+              st.write("Drop Point: {}".format(name))
+              st.write("Tanggal/Jam : {}".format(timenow))
+              st.write("Total Sisa Stock Kemarin : {}".format(sum_nss), "box")
+          with col4:
+             st.empty()
+             
         else:
           st.warning('Isi sesuai jumlah stock yang ada di drop point', icon="⚠️")
           st.stop()
