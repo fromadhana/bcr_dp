@@ -143,7 +143,7 @@ if authentication_status ==True:
           container.write(":orange[Jumlah Sisa Stock Kemarin]")
           st.table(df1)
           #show related information
-          col3, col4 = st.columns(2)
+          col3 = st.columns(1)
           with col3:
               st.markdown("""
                           <style>
@@ -155,8 +155,6 @@ if authentication_status ==True:
               st.write("Drop Point: {}".format(name))
               st.write("Tanggal/Jam : {}".format(timenow))
               st.write("Total Sisa Stock Kemarin : {}".format(sum_nss), "box")
-          with col4:
-             st.empty()
              
         else:
           st.warning('Isi sesuai jumlah stock yang ada di drop point', icon="⚠️")
