@@ -1,0 +1,17 @@
+cookie:
+  expiry_days: 30
+  key: some_signature_key
+  name: some_cookie_name
+credentials:
+  usernames:
+    arkankai19:
+      email: arkana@gmail.com
+      name: Arkana Fata Mawlana
+      password: $2b$12$yGj7VkdVnLe0OiQvxMXwYu4FoTVANF47.T3PqcbTXohx1RujfF3ie
+    fromadhana:
+      email: f.romadhana@gmail.com
+      name: Farid Romadhana
+      password: $2b$12$TROZuN9rYDyNs/JzpDITaO9CCXaArKk71jiQ6cL7qHLmg4397.Jm2
+preauthorized:
+  emails:
+  - fronaona@gmail.com

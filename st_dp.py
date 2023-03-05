@@ -4,14 +4,15 @@ author: f.romadhana@gmail.com
 """
 
 #import necessary libraries
+import yaml
 import pytz
 import time
 import pandas as pd
-import db_deta as db
 from PIL import Image
 import streamlit as st
 from time import sleep
 from datetime import datetime
+from yaml.loader import SafeLoader
 import streamlit_authenticator as stauth
 
 
@@ -39,20 +40,27 @@ hide_menu_style = """
           """
 st.markdown(hide_menu_style, unsafe_allow_html=True)
  
-# ---USER AUTHENTICATION---
-users = db.fetch_all_user()
-username = [user["key"] for user in users]
-names = [user["name"] for user in users]
-hashed_password =[user["password"] for user in users]
+# ---USER AUTHENTICATION--- #
+with open('user.yaml') as file:
+    config = yaml.load(file, Loader=SafeLoader)
 
-authenticator = stauth.Authenticate(names, username, hashed_password, 
-                                    "form_so", "sodp", cookie_expiry_days=30)
-name, authentication_status, username = authenticator.login("Login", "main")
+authenticator = stauth.Authenticate(
+    config['credentials'],
+    config['cookie']['name'],
+    config['cookie']['key'],
+    config['cookie']['expiry_days'],
+    config['preauthorized']
+)
+
+name, authentication_status, username = authenticator.login('Login', 'main')
 
 if authentication_status == False:
   st.error("Username & Password tidak terdaftar!")
 if authentication_status == None:
   st.warning("Mohon isi Username & Password yang sudah diberikan!")
+
+with open('user.yaml', 'w') as file:
+    yaml.dump(config, file, default_flow_style=False)
 
 #if login success, display form so page
 if authentication_status ==True:
@@ -91,20 +99,20 @@ if authentication_status ==True:
                           </style>""",
                         unsafe_allow_html=True)
         with col1:
-            pss1 = st.selectbox("Produk", ('','Lapis', 'Bolu', 'Brokat', 'Brokat', 'Pie 6', 'Pie 8', "Balok"))
-            pss2 = st.selectbox("p2", ('','Lapis', 'Bolu', 'Brokat', 'Brokat', 'Pie 6', 'Pie 8', "Balok"), label_visibility="collapsed")
-            pss3 = st.selectbox("p3", ('','Lapis', 'Bolu', 'Brokat', 'Brokat', 'Pie 6', 'Pie 8', "Balok"), label_visibility="collapsed")
-            pss4 = st.selectbox("p4", ('','Lapis', 'Bolu', 'Brokat', 'Brokat', 'Pie 6', 'Pie 8', "Balok"), label_visibility="collapsed")
-            pss5 = st.selectbox("p5", ('','Lapis', 'Bolu', 'Brokat', 'Brokat', 'Pie 6', 'Pie 8', "Balok"), label_visibility="collapsed")
-            pss6 = st.selectbox("p6", ('','Lapis', 'Bolu', 'Brokat', 'Brokat', 'Pie 6', 'Pie 8', "Balok"), label_visibility="collapsed")      
+            pss1 = st.selectbox("Produk", ('','Lapis', 'Bolu', 'Bropang', 'Brokat', 'Pie 6', 'Pie 8', "Balok"))
+            pss2 = st.selectbox("p2", ('','Lapis', 'Bolu', 'Bropang', 'Brokat', 'Pie 6', 'Pie 8', "Balok"), label_visibility="collapsed")
+            pss3 = st.selectbox("p3", ('','Lapis', 'Bolu', 'Bropang', 'Brokat', 'Pie 6', 'Pie 8', "Balok"), label_visibility="collapsed")
+            pss4 = st.selectbox("p4", ('','Lapis', 'Bolu', 'Bropang', 'Brokat', 'Pie 6', 'Pie 8', "Balok"), label_visibility="collapsed")
+            pss5 = st.selectbox("p5", ('','Lapis', 'Bolu', 'Bropang', 'Brokat', 'Pie 6', 'Pie 8', "Balok"), label_visibility="collapsed")
+            pss6 = st.selectbox("p6", ('','Lapis', 'Bolu', 'Bropang', 'Brokat', 'Pie 6', 'Pie 8', "Balok"), label_visibility="collapsed")      
 
         with col2:
-            nss1 = st.number_input('Jumlah', step=1)
-            nss2 = st.number_input('n2', label_visibility="collapsed", step=1)
-            nss3 = st.number_input('n3', label_visibility="collapsed", step=1)
-            nss4 = st.number_input('n4', label_visibility="collapsed", step=1)
-            nss5 = st.number_input('n5', label_visibility="collapsed", step=1)
-            nss6 = st.number_input('n6', label_visibility="collapsed", step=1)
+            nss1 = st.number_input('Jumlah', min_value=0, step=1)
+            nss2 = st.number_input('n2', min_value=0, label_visibility="collapsed", step=1)
+            nss3 = st.number_input('n3', min_value=0, label_visibility="collapsed", step=1)
+            nss4 = st.number_input('n4', min_value=0, label_visibility="collapsed", step=1)
+            nss5 = st.number_input('n5', min_value=0, label_visibility="collapsed", step=1)
+            nss6 = st.number_input('n6', min_value=0, label_visibility="collapsed", step=1)
           
         with col3:
             tss1 = st.text_input('Expired')
