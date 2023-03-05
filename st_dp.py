@@ -86,9 +86,9 @@ if st.session_state["authentication_status"]:
     col1, col2, col3 = st.columns(3)
     st.write('''<style>
         [data-testid="column"] {
-            width: calc(33.3333% - 1rem) !important;
-            flex: 1 1 calc(33.3333% - 1rem) !important;
-            min-width: calc(33% - 1rem) !important;
+            width: calc(40% - 1rem) !important;
+            flex: 1 1 calc(40% - 1rem) !important;
+            min-width: calc(40% - 1rem) !important;
         }
         </style>''', unsafe_allow_html=True)
     st.markdown("""
@@ -99,7 +99,7 @@ if st.session_state["authentication_status"]:
                         </style>""",
                     unsafe_allow_html=True)
     with col1:
-        ppj1 = st.selectbox("Produk", ('','LTK', 'BSK', 'BRP', 'BRS', 'PI6', 'PI8'))
+        ppj1 = st.selectbox("Produk", ('','Lapis', 'Bolu', 'Brokat', 'Bropang', 'Pie 6', 'Pie 8', 'Balok'))
         ppj2 = st.selectbox("p2", ('','LTK', 'BSK', 'BRP', 'BRS', 'PI6', 'PI8'), label_visibility="collapsed")
         ppj3 = st.selectbox("p3", ('','LTK', 'BSK', 'BRP', 'BRS', 'PI6', 'PI8'), label_visibility="collapsed")
         ppj4 = st.selectbox("p4", ('','LTK', 'BSK', 'BRP', 'BRS', 'PI6', 'PI8'), label_visibility="collapsed")
@@ -141,14 +141,14 @@ if st.session_state["authentication_status"]:
         #inject CSS with markdown
         hide = st.markdown(hide_table_row_index, unsafe_allow_html=True)
         container = st.container()
-        container.write(":orange[Jumlah Stock Masuk]")
+        container.write(":orange[Jumlah Penjualan Hari Ini]")
         st.table(df3)
 
         #show related information    
         st.write("Drop Point: {}".format(name))
         st.write("Tanggal/Jam : {}".format(timenow))
-        st.write("Total Stock Masuk : {}".format(sum_npj), "box")
+        st.write("Total Penjualan Hari Ini : {}".format(sum_npj), "box")
             
     else:
-        st.warning('Isi sesuai jumlah stock yang ada di drop point', icon="⚠️")
+        st.warning('Isi sesuai jumlah penjualan hari ini', icon="⚠️")
         st.stop()
