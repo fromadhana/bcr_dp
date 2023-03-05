@@ -54,16 +54,17 @@ authenticator = stauth.Authenticate(
 
 name, authentication_status, username = authenticator.login('Login', 'main')
 
-if authentication_status == False:
-  st.error("Username & Password tidak terdaftar!")
-if authentication_status == None:
-  st.warning("Mohon isi Username & Password yang sudah diberikan!")
+if st.session_state["authentication_status"] is False:
+    st.error('Username & Password tidak terdaftar!')
+if st.session_state["authentication_status"] is None:
+    st.warning('Mohon isi Username & Password yang sudah diberikan!')
 
 with open('user.yaml', 'w') as file:
     yaml.dump(config, file, default_flow_style=False)
 
+
 #if login success, display form so page
-if authentication_status ==True:
+if st.session_state["authentication_status"]:
   #caching 
   @st.cache_data
   def process_for_index(index: int) -> int:
@@ -142,19 +143,11 @@ if authentication_status ==True:
         container = st.container()
         container.write(":orange[Jumlah Stock Masuk]")
         st.table(df3)
-        #show related information
-        col3 = st.columns(1)
-        with col3:
-            st.markdown("""
-                        <style>
-                        [data-testid=column]:nth-of-type(3) [data-testid=stVerticalBlock]{
-                            gap: 0rem;
-                        }
-                        </style>
-                        """,unsafe_allow_html=True)
-            st.write("Drop Point: {}".format(name))
-            st.write("Tanggal/Jam : {}".format(timenow))
-            st.write("Total Stock Masuk : {}".format(sum_npj), "box")
+
+        #show related information    
+        st.write("Drop Point: {}".format(name))
+        st.write("Tanggal/Jam : {}".format(timenow))
+        st.write("Total Stock Masuk : {}".format(sum_npj), "box")
             
     else:
         st.warning('Isi sesuai jumlah stock yang ada di drop point', icon="⚠️")
