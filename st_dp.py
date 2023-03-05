@@ -80,10 +80,10 @@ if st.session_state["authentication_status"]:
   time.sleep(1)
   
   #display streamlit form
-  st.subheader("Penjualan Hari Ini 💵")
+  st.subheader("Penjualan Cash Hari Ini 💵")
   with st.form(key= "so_sell", clear_on_submit=True):
     #sisa stock kemarin
-    col1, col2, col3 = st.columns(3)
+    col1, col2 = st.columns(2)
     st.write('''<style>
         [data-testid="column"] {
             width: calc(35% - 1rem) !important;
@@ -91,13 +91,7 @@ if st.session_state["authentication_status"]:
             min-width: calc(35% - 1rem) !important;
         }
         </style>''', unsafe_allow_html=True)
-    st.markdown("""
-                        <style>
-                            button.step-up {display: none;}
-                            button.step-down {display: none;}
-                            div[data-baseweb] {border-radius: 4px;}
-                        </style>""",
-                    unsafe_allow_html=True)
+    
     with col1:
         ppj1 = st.selectbox("Produk", ('','Lapis', 'Bolu', 'Brokat', 'Bropang', 'Pie 6', 'Pie 8', 'Balok'))
         ppj2 = st.selectbox("p2", ('','Lapis', 'Bolu', 'Brokat', 'Bropang', 'Pie 6', 'Pie 8', 'Balok'), label_visibility="collapsed")
@@ -105,16 +99,8 @@ if st.session_state["authentication_status"]:
         ppj4 = st.selectbox("p4", ('','Lapis', 'Bolu', 'Brokat', 'Bropang', 'Pie 6', 'Pie 8', 'Balok'), label_visibility="collapsed")
         ppj5 = st.selectbox("p5", ('','Lapis', 'Bolu', 'Brokat', 'Bropang', 'Pie 6', 'Pie 8', 'Balok'), label_visibility="collapsed")
         ppj6 = st.selectbox("p6", ('','Lapis', 'Bolu', 'Brokat', 'Bropang', 'Pie 6', 'Pie 8', 'Balok'), label_visibility="collapsed")      
-
-    with col2:
-        opj1 = st.selectbox("Cash/OL", ('','Cash','Gojek', 'Grab', 'Shopee', 'AirAsia'))
-        opj2 = st.selectbox("o2", ('','Cash','Gojek', 'Grab', 'Shopee', 'AirAsia'), label_visibility="collapsed")
-        opj3 = st.selectbox("o3", ('','Cash','Gojek', 'Grab', 'Shopee', 'AirAsia'), label_visibility="collapsed")
-        opj4 = st.selectbox("o4", ('','Cash','Gojek', 'Grab', 'Shopee', 'AirAsia'), label_visibility="collapsed")
-        opj5 = st.selectbox("o5", ('','Cash','Gojek', 'Grab', 'Shopee', 'AirAsia'), label_visibility="collapsed")
-        opj6 = st.selectbox("o6", ('','Cash','Gojek', 'Grab', 'Shopee', 'AirAsia'), label_visibility="collapsed")
         
-    with col3:
+    with col2:
         npj1 = st.number_input('Jumlah', step=1)
         npj2 = st.number_input('n2', label_visibility="collapsed", step=1)
         npj3 = st.number_input('n3', label_visibility="collapsed", step=1)
@@ -129,7 +115,6 @@ if st.session_state["authentication_status"]:
         sum_npj = npj1 + npj2 + npj3 + npj4 + npj5 + npj6
         #create dataframe
         df3 = pd.DataFrame({"Produk": [ppj1, ppj2, ppj3, ppj4, ppj5, ppj6], 
-                            "Cash/Online": [opj1, opj2, opj3, opj4, opj5, opj6],
                             "Jumlah": [npj1, npj2, npj3, npj4, npj5, npj6]})
         #CSS to inject contained in a string
         hide_table_row_index = """
@@ -141,13 +126,13 @@ if st.session_state["authentication_status"]:
         #inject CSS with markdown
         hide = st.markdown(hide_table_row_index, unsafe_allow_html=True)
         container = st.container()
-        container.write(":orange[Jumlah Penjualan Hari Ini]")
+        container.write(":orange[Penjualan Cash]")
         st.table(df3)
 
         #show related information    
         st.write("Drop Point: {}".format(name))
         st.write("Tanggal/Jam : {}".format(timenow))
-        st.write("Total Penjualan Hari Ini : {}".format(sum_npj), "box")
+        st.write("Total Penjualan Cash : {}".format(sum_npj), "box")
             
     else:
         st.warning('Isi sesuai jumlah penjualan hari ini', icon="⚠️")
