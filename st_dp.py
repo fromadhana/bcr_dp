@@ -86,9 +86,9 @@ if st.session_state["authentication_status"]:
     col1, col2, col3 = st.columns(3)
     st.write('''<style>
         [data-testid="column"] {
-            width: calc(40% - 1rem) !important;
-            flex: 1 1 calc(40% - 1rem) !important;
-            min-width: calc(40% - 1rem) !important;
+            width: calc(35% - 1rem) !important;
+            flex: 1 1 calc(35% - 1rem) !important;
+            min-width: calc(35% - 1rem) !important;
         }
         </style>''', unsafe_allow_html=True)
     st.markdown("""
