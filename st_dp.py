@@ -28,7 +28,7 @@ st.markdown(f""" <style>
         padding-top: 1rem;
         padding-right: 1rem;
         padding-left: 1rem;
-        padding-bottom: 0rem;
+        padding-bottom: 1rem;
     }} </style> """, unsafe_allow_html=True)
 
 #hide streamlit menu and footer
@@ -100,11 +100,11 @@ if st.session_state["authentication_status"]:
                     unsafe_allow_html=True)
     with col1:
         ppj1 = st.selectbox("Produk", ('','Lapis', 'Bolu', 'Brokat', 'Bropang', 'Pie 6', 'Pie 8', 'Balok'))
-        ppj2 = st.selectbox("p2", ('','LTK', 'BSK', 'BRP', 'BRS', 'PI6', 'PI8'), label_visibility="collapsed")
-        ppj3 = st.selectbox("p3", ('','LTK', 'BSK', 'BRP', 'BRS', 'PI6', 'PI8'), label_visibility="collapsed")
-        ppj4 = st.selectbox("p4", ('','LTK', 'BSK', 'BRP', 'BRS', 'PI6', 'PI8'), label_visibility="collapsed")
-        ppj5 = st.selectbox("p5", ('','LTK', 'BSK', 'BRP', 'BRS', 'PI6', 'PI8'), label_visibility="collapsed")
-        ppj6 = st.selectbox("p6", ('','LTK', 'BSK', 'BRP', 'BRS', 'PI6', 'PI8'), label_visibility="collapsed")      
+        ppj2 = st.selectbox("p2", ('','Lapis', 'Bolu', 'Brokat', 'Bropang', 'Pie 6', 'Pie 8', 'Balok'), label_visibility="collapsed")
+        ppj3 = st.selectbox("p3", ('','Lapis', 'Bolu', 'Brokat', 'Bropang', 'Pie 6', 'Pie 8', 'Balok'), label_visibility="collapsed")
+        ppj4 = st.selectbox("p4", ('','Lapis', 'Bolu', 'Brokat', 'Bropang', 'Pie 6', 'Pie 8', 'Balok'), label_visibility="collapsed")
+        ppj5 = st.selectbox("p5", ('','Lapis', 'Bolu', 'Brokat', 'Bropang', 'Pie 6', 'Pie 8', 'Balok'), label_visibility="collapsed")
+        ppj6 = st.selectbox("p6", ('','Lapis', 'Bolu', 'Brokat', 'Bropang', 'Pie 6', 'Pie 8', 'Balok'), label_visibility="collapsed")      
 
     with col2:
         opj1 = st.selectbox("Cash/OL", ('','Cash','Gojek', 'Grab', 'Shopee', 'AirAsia'))
