@@ -12,6 +12,10 @@ credentials:
       email: f.romadhana@gmail.com
       name: Farid Romadhana
       password: $2b$12$TROZuN9rYDyNs/JzpDITaO9CCXaArKk71jiQ6cL7qHLmg4397.Jm2
+    garet_caem:
+      email: garet.taslim@gmail.com
+      name: Garet Taslim Kusala
+      password: $2b$12$eE9fH/21otflRV3TR28wp.2zY9WTtDZWEgfRhOzoE./e3Zk3040bq
 preauthorized:
   emails:
   - fronaona@gmail.com
